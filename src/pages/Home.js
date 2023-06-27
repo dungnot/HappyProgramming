@@ -1,14 +1,21 @@
+import Hero from "../component/Hero";
 import MainHeader from "../component/MainHeader";
-import Header from "../component/Header";
-import Footer from "../component/Footer";
+import SuperHero from "../component/SuperHero";
+
+
+
+
 
 
 const Home = () => {
     return (
         <>
-       <Header/>
+      
         <MainHeader />
-<Footer/>
+        <Hero/>
+        <SuperHero/>
+     
+
         </>
 
     );

@@ -1,136 +1,86 @@
-import {
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
-  } from "@mui/material";
-  import MainLayout from "../../component/main-layout/MainLayout";
-  import styles from "./index.module.css";
-  
-  function createData(mentorId, mentorName, imageUrl, email, dateString) {
-    return { mentorId, mentorName, imageUrl, email, dateString };
-  }
-  
-  const rows = [
-    createData(
-      "mentor1",
-      "nguyen trong tai",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5iuH9GH49VUAv0qvlrKiFRnsgEC6maRA9g&usqp=CAU",
-      "email@gmail.com",
-      "08, August, 2023"
-    ),
-    createData(
-      "mentor2",
-      "nguyen trong tai",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5iuH9GH49VUAv0qvlrKiFRnsgEC6maRA9g&usqp=CAU",
-      "email@gmail.com",
-      "08, August, 2023"
-    ),
-    createData(
-      "mentor3",
-      "nguyen trong tai",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5iuH9GH49VUAv0qvlrKiFRnsgEC6maRA9g&usqp=CAU",
-      "email@gmail.com",
-      "08, August, 2023"
-    ),
-    createData(
-      "mentor4",
-      "nguyen trong tai",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5iuH9GH49VUAv0qvlrKiFRnsgEC6maRA9g&usqp=CAU",
-      "email@gmail.com",
-      "08, August, 2023"
-    ),
-    createData(
-      "mentor5",
-      "nguyen trong tai",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5iuH9GH49VUAv0qvlrKiFRnsgEC6maRA9g&usqp=CAU",
-      "email@gmail.com",
-      "08, August, 2023"
-    ),
-    createData(
-      "mentor6",
-      "nguyen trong tai",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5iuH9GH49VUAv0qvlrKiFRnsgEC6maRA9g&usqp=CAU",
-      "email@gmail.com",
-      "08, August, 2023"
-    ),
-    createData(
-      "mentor7",
-      "nguyen trong tai",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5iuH9GH49VUAv0qvlrKiFRnsgEC6maRA9g&usqp=CAU",
-      "email@gmail.com",
-      "08, August, 2023"
-    ),
-  ];
-  
-  const Booking = () => {
-    return (
-      <MainLayout
-        pageTitle="Booking"
-        layoutContent={
-          <>
-            <div className={styles.dbWrapper}>
-              <h2>Booking Summary</h2>
-              <TableContainer
-                sx={{
-                  background: "#E7E7D7",
-  
-                  border: "5px solid #B5C49C",
-                  borderRadius: "10px",
-                }}
-              >
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell className={styles.tableCellHead} align="center">
-                        Mentor Lists
-                      </TableCell>
-                      <TableCell className={styles.tableCellHead} align="center">
-                        Scheduled Date
-                      </TableCell>
-                      <TableCell className={styles.tableCellHead} align="center">
-                        Scheduled Timings
-                      </TableCell>
-                      <TableCell className={styles.tableCellHead} align="center">
-                        Action
-                      </TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {rows.map((row) => (
-                      <TableRow
-                        key={row.mentorId}
-                        sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                      >
-                        <TableCell align="center">
-                          <div className={styles.mentorInfoWrapper}>
-                            <img src={row.imageUrl} alt="avatar" />
-                            <div className={styles.infoLeft}>
-                              <h4>{row.mentorName}</h4>
-                              <p>{row.email}</p>
-                            </div>
-                          </div>
-                        </TableCell>
-                        <TableCell align="center">{row.dateString}</TableCell>
-                        <TableCell align="center">
-                          <div className={styles.block}></div>
-                        </TableCell>
-                        <TableCell align="center">
-                          <div className={styles.block}></div>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </div>
-          </>
-        }
-      />
-    );
+import {PencilSquare, Trash3Fill } from "react-bootstrap-icons";
+import { Link } from "react-router-dom"
+import { Col, Row, Table } from "react-bootstrap";
+import { useEffect, useState } from "react";
+
+
+const Booking = () => {
+
+  const [bookings, setBooking] = useState([]);
+  //call API
+  useEffect(() => {
+    fetch("http://localhost:9999/Booking")
+      .then((resp) => resp.json())
+      .then((data) => {
+        setBooking(data);
+      });
+  }, []);
+
+  // delete
+  const handleDelete = (name) => {
+    if (window.confirm("Muon xoa-name: " + name + "?")) {
+      fetch("http://localhost:9999/Booking/" + name, {
+        method: "DELETE",
+      })
+        .then(() => {
+          alert("Delete success");
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
   };
-  
-  export default Booking;
-  
+
+
+  return (
+    <Row>
+      <Col>
+        <Row>
+          <Col>
+            <h2 style={{ textAlign: "center" }}>List of booking</h2>
+          </Col>
+        </Row>
+
+
+
+        <Row>
+          <Col>
+            <Table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>SCHEDULED DATE</th>
+                  <th>SCHEDULED TIMINGS</th>
+                  <th colSpan={2}>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {bookings.map((b) => (
+                  <tr key={b.name}>
+                    <td>{b.name}</td>
+
+                    <td>{b.email}</td>
+                    <td>{b.date}</td>
+                    <td>{b.timings}</td>
+                    <td>
+                      <Link onClick={() => handleDelete(b.name)}><Trash3Fill /></Link>
+                    </td>
+                    <td>
+                     <PencilSquare />
+                    </td>
+
+
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
+  );
+};
+
+export default Booking;

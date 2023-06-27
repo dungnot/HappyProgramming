@@ -9,14 +9,18 @@ import Home from '../pages/Home';
 import Booking from '../pages/booking/bookings';
 import Dashboard from '../pages/dashboard/Dashboard';
 import FavouriteMentor from '../pages/favorite/Favorite';
+import Header from '../component/Header';
+import Footer from '../component/Footer/Footer';
 
 
 const AppRoutes = () => {
     return ( 
         <Router>
+        <Header/>
      <Routes>
+     
      <Route path='/' element ={<Home/>}/>
-    <Route path='/findmentor' element ={<FindMentor/>}/>
+    <Route path='/findmentor/2' element ={<FindMentor/>}/>
      <Route path='/favorite' element ={<Favorite/>}/>
      <Route path='history' element ={<History/>}/>
      <Route path='/login' element ={<SigIn/>}/>
@@ -27,7 +31,7 @@ const AppRoutes = () => {
      </Routes>
      {/*Call Dashboard Admin */}
 
-    
+    <Footer/>
     
      </Router> 
     );
