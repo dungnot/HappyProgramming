@@ -15,20 +15,20 @@ const linkObjList = [
     represent: "Favorite Mentor",
   },
   {
-    to: "/messages",
-    represent: "Messages",
-  },
-  {
-    to: "/receipt",
-    represent: "Receipt",
-  },
-  {
     to: "/feedback",
     represent: "Feedback",
   },
   {
     to: "/report",
     represent: "Report",
+  },
+  {
+    to: "/invoice",
+    represent: "Invoice",
+  },
+  {
+    to: "/profile",
+    represent: "Profile",
   },
 ];
 
@@ -42,7 +42,7 @@ const Sidebar = () => {
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-Q_ZZIlFsebqqPjyA-zpNe_6a0mLgs2IlLQ&usqp=CAU"
         alt="avatar"
       />
-      
+
       {linkObjList.map((linkItem) => (
         <div
           key={linkItem.to}
