@@ -17,21 +17,6 @@
   text-align: center;
 }
 
-.box {
-  height: 5vh; /* chiều cao theo % chiều cao của trang */
-  margin-top: 5px; /* bỏ đi thuộc tính margin-top */
-  background-color: rgb(138, 219, 165);
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30vw; /* chiều rộng theo % chiều rộng của trang */
-  text-align: center;
-  position: absolute; /* thay đổi thành "absolute" */
-  left: 50%;
-  transform: translateX(-50%);
-  top: 39vh; /* cố định vị trí */
-}
 
 
  

@@ -17,10 +17,7 @@ const MainHeader = () => {
                         <br /> Take the first step toward unlocking your potential and
                         let our mentors guide you towards success in the exciting world of coding
                     </h2>
-                    <div class="box">
-                        <input type="text" placeholder="Search for skill" />
-                        <FaSearch />Find Mentor
-                    </div>
+                 
                 </div>
 
                 <div className="row">

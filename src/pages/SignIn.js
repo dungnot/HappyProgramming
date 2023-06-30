@@ -1,13 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import '../styles/SignIn.css';
 import { } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { ApplicationContext } from '../routes/AppRoutes';
+import '../auth/utils';
 const SigIn = () => {
     const navigate = useNavigate();
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [isValid, setIsValid] = useState(true);
+
+    const {makeSignIn} = useContext(ApplicationContext);
 
     const handleSignIn = () => {
         console.log('username: ' + userName);
@@ -20,6 +23,7 @@ const SigIn = () => {
             setIsValid(false);
         }
     }
+    makeSignIn(user);
 
     return (
         <div className="login-bg">

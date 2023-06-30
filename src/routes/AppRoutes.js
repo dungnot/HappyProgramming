@@ -9,32 +9,52 @@ import Home from '../pages/Home';
 import Booking from '../pages/booking/bookings';
 import Dashboard from '../pages/dashboard/Dashboard';
 import FavouriteMentor from '../pages/favorite/Favorite';
-import Header from '../component/Header';
-import Footer from '../component/Footer/Footer';
 
+import Navbar from '../component/admin/navbar/Navbar';
+import React, { useState } from 'react';
+ 
+export const ApplicationContext = React.createContext([])
 
 const AppRoutes = () => {
-    return ( 
-        <Router>
-        <Header/>
-     <Routes>
-     
-     <Route path='/' element ={<Home/>}/>
-    <Route path='/findmentor/2' element ={<FindMentor/>}/>
-     <Route path='/favorite' element ={<Favorite/>}/>
-     <Route path='history' element ={<History/>}/>
-     <Route path='/login' element ={<SigIn/>}/>
-     <Route path='/resgiter' element ={<SigUp/>}/>
-     <Route path='/bookings' element ={<Booking/>}/>
-    <Route path='/dashboard' element ={<Dashboard/>}/>
-    <Route path='favorite-mentor' element ={<FavouriteMentor/>}/>
-     </Routes>
-     {/*Call Dashboard Admin */}
+    const [user, setUser] = useState([])
 
-    <Footer/>
-    
-     </Router> 
+    const makeSignIn = (user)=>{
+        setUser(user);
+    }
+    const makeSignOut = (user)=>{
+        setUser([])
+    }
+    return (
+        <ApplicationContext.Provider value={{user, setUser,makeSignIn,makeSignOut}}>
+        <Router>
+        
+            <Routes>
+
+                <Route path='/' element={<Home />} />
+                <Route path='/findmentor' element={<FindMentor />} />
+                <Route path='/favorite' element={<Favorite />} />
+                <Route path='history' element={<History />} />
+                <Route path='/login' element={<SigIn />} />
+                <Route path='/resgiter' element={<SigUp />} />
+                <Route path='/bookings' element={<Booking />} />
+                <Route path='/dashboard' element={<Dashboard />} />
+                <Route path='favorite-mentor' element={<FavouriteMentor />} />
+               
+               
+               
+                {/*Call Dashboard Admin */}
+                <Route path="/admin" element={<Navbar/>}/>
+                
+                
+            </Routes>
+
+
+
+
+        </Router>
+        </ApplicationContext.Provider>
     );
 }
- 
-export default AppRoutes ;
+
+export default AppRoutes;
+

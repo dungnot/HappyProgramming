@@ -17,16 +17,8 @@ const Hero = () => {
                             <p>"Naz is an amazing person and a wonderful mentor. She is supportive and knowledgeable
                                 with extensiv practical experience.Having been a manager at Netflix, she also knows a ton about
                                 working with teams at scale. Highly recommended.</p>
-
-
-
                         </div>
-
-
-
                     </div>
-
-
                 </div>
 
                 <div className="col">
@@ -37,18 +29,20 @@ const Hero = () => {
                             <p>"Naz is an amazing person and a wonderful mentor. She is supportive and knowledgeable
                                 with extensiv practical experience.Having been a manager at Netflix, she also knows a ton about
                                 working with teams at scale. Highly recommended.</p>
-
-
-
                         </div>
-
-
-
                     </div>
-
-
                 </div>
-
+                <div className="col">
+                    <div className="card">
+                        <img src="https://number1.com.vn/wp-content/uploads/2017/06/Albert-Einstein.jpg" className="card-img-top" />
+                        <div className="card-body">
+                            <h5 className="text-center">Ngoc Anh</h5>
+                            <p>"Naz is an amazing person and a wonderful mentor. She is supportive and knowledgeable
+                                with extensiv practical experience.Having been a manager at Netflix, she also knows a ton about
+                                working with teams at scale. Highly recommended.</p>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="col">
                     <div className="card">
@@ -58,38 +52,8 @@ const Hero = () => {
                             <p>"Naz is an amazing person and a wonderful mentor. She is supportive and knowledgeable
                                 with extensiv practical experience.Having been a manager at Netflix, she also knows a ton about
                                 working with teams at scale. Highly recommended.</p>
-
-
-
                         </div>
-
-
-
                     </div>
-
-
-                </div>
-
-
-
-                <div className="col">
-                    <div className="card">
-                        <img src="https://number1.com.vn/wp-content/uploads/2017/06/Albert-Einstein.jpg" className="card-img-top" />
-                        <div className="card-body">
-                            <h5 className="text-center">Ngoc Anh</h5>
-                            <p>"Naz is an amazing person and a wonderful mentor. She is supportive and knowledgeable
-                                with extensiv practical experience.Having been a manager at Netflix, she also knows a ton about
-                                working with teams at scale. Highly recommended.</p>
-
-
-
-                        </div>
-
-
-
-                    </div>
-
-
                 </div>
 
 
@@ -101,16 +65,8 @@ const Hero = () => {
                             <p>"Naz is an amazing person and a wonderful mentor. She is supportive and knowledgeable
                                 with extensiv practical experience.Having been a manager at Netflix, she also knows a ton about
                                 working with teams at scale. Highly recommended.</p>
-
-
-
                         </div>
-
-
-
                     </div>
-
-
                 </div>
 
 
@@ -122,24 +78,9 @@ const Hero = () => {
                             <p>"Naz is an amazing person and a wonderful mentor. She is supportive and knowledgeable
                                 with extensiv practical experience.Having been a manager at Netflix, she also knows a ton about
                                 working with teams at scale. Highly recommended.</p>
-
-
-
                         </div>
-
-
-
                     </div>
-
-
                 </div>
-
-
-              
-
-
-
-
             </div>
 
 
